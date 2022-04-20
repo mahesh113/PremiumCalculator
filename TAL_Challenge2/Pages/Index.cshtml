@@ -1,10 +1,59 @@
 ﻿@page
-@model IndexModel
+@model CustomerModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <table class="table table-primary">
+                    <tbody>
+                        <tr>
+                            <td class="col-3">@Html.LabelFor(m => m.Name)</td>
+                            <td>@Html.TextBoxFor(m => m.Name, new { @placeholder = "Name", @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td class="col-3">@Html.LabelFor(m => m.DOB)</td>
+                            <td>
+                                <div class="date">
+                                    @Html.TextBoxFor(m => m.DOB, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="col-3">@Html.LabelFor(m => m.Age)</td>
+                            <td>@Html.TextBoxFor(m => m.Age, new { @placeholder = "Age", @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td class="col-3">@Html.LabelFor(m => m.Occupation)</td>
+                            <td>@Html.DropDownListFor(m => m.Occupation, Model.OccupationList, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td class="col-3">@Html.LabelFor(m => m.InsuredAmount)</td>
+                            <td>@Html.TextBoxFor(m => m.InsuredAmount, new { @placeholder = "Type Sum Insured", @class = "form-control" })</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            SAMLPLE TEXT
+            <div class="col-6 mCard">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Premium Amount</h5>
+                        <p class="card-text">Your Preminum value is: <span class="final">0</span></p>
+
+                    </div>
+                </div>
+            </div>
+
+            @Html.HiddenFor(m => m.FinalPremium)
+            @Html.HiddenFor(m => m.Factor)
+        </div>
+    </div>
 </div>

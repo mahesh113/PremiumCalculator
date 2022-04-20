@@ -1,0 +1,9 @@
+﻿.cont{
+    margin:1px;
+    width: 500px;
+}
+
+.mCard{
+   float:right;
+   display:inline-block;
+}

@@ -2,24 +2,28 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
-using System.Threading.Tasks;
+using TAL_Challenge2.Common;
 
 namespace TAL_Challenge2.Pages
 {
-    public class IndexModel : PageModel
+    public class CustomerModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public string Name { get; set; }
+        public int Occupation { get; set; }
+        public SelectList OccupationList
         {
-            _logger = logger;
+            get
+            {
+                return new SelectList(Enum.GetValues(typeof(OccupationType)));
+            }
         }
-
-        public void OnGet()
-        {
-
-        }
+        public int Age { get; set; }
+        public int InsuredAmount { get; set; }
+        public DateTime DOB { get; set; }
+        public float FinalPremium { get; set; }
+        public float Factor { get; set; }
     }
 }
